@@ -10,7 +10,6 @@ body {
   color: #000000;
   background-color: #e3e3e3;
 }
-
 .navbar {
   overflow: hidden;
   background-color: #1569C7;
@@ -19,22 +18,18 @@ body {
   margin: 0em auto;
   
 }
-
 .navbar a {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
-
 .navbar a:hover {
   background-color: #F0F0F0;
   color: black;
 }
-
 .navbar a.active {
   background-color: #21b1d3;
   color: white;
@@ -46,12 +41,12 @@ body {
   background: #1569C7;
   text-align: center;
   border-bottom: none;
-  
   padding: 8px;
 }
 
 h4 {
-  color: #21b1d3;
+  color: #1342CF;
+  font-weight: bold;
 }
 
 input,
@@ -163,8 +158,8 @@ select:active {
   outline: 0;
 }
 select option {
-  background-color: #21b1d3;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
 }
 .input-group {
   margin-bottom: 1em;
@@ -276,3 +271,4 @@ select option {
   text-decoration:  none;
   color:            black;
   } 
+  
