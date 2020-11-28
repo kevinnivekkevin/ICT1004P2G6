@@ -1,7 +1,7 @@
 ### To do
 ![alt text](https://github.com/kevinnivekkevin/ICT1004P2G6/blob/main/githubImages/Capture.PNG?raw=true)
 
-### changelog
+### changelog (28/11)
 	-Replaced sha1() password storing with password_hash() for admins and participants (safer since same passwords gen. same the hashes in db)
 	-Compiled All_Events (admin
 	-Removed My_Events(admin)(alr included in all_events)
