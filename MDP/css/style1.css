@@ -1,0 +1,138 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  padding: 1em;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #000000;
+  background-color: #e3e3e3;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #1569C7;
+  border-radius: 7px 7px 0px 0px;
+  max-width: 38em;
+  margin: 0em auto;
+  
+}
+
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #F0F0F0;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #21b1d3;
+  color: white;
+}
+.header{
+  max-width: 38em;
+  margin: 0px auto 0px;
+  color: white;
+  background: #1569C7;
+  text-align: center;
+  border-bottom: none;
+  
+  padding: 8px;
+}
+h4 {
+  color: #21b1d3;
+}
+
+/*Chest width box*/
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before,
+select option,
+select {
+  width: 100%;
+  padding: 1em;
+  line-height: 1.4;
+  background-color: #f9f9f9;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input:focus {
+  outline: 0;
+  border-color: #50ccde;
+}
+input:focus + .input-icon i {
+  color: #21b1d3;
+}
+input:focus + .input-icon:after {
+  border-right-color: #21b1d3;
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label,
+select {
+  display: inline-block;
+  width: 100%; /*!!!!!!!!!!!!!!!!*/
+  text-align: center;
+  float: left;
+  border-radius: 0;
+}
+
+select {
+  height: 3.4em;
+  line-height: 2;
+}
+
+select:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+select:last-of-type {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+select:focus,
+select:active {
+  outline: 0;
+}
+/*select option background colour*/
+select option {
+  background-color: #f9f9f9;
+  color: #000000;
+}
+
+.container {
+  max-width: 38em;
+  padding: 1em 2em 2em 2em;
+  margin: 0em auto;
+  background-color: #fff;
+  border-bottom-left-radius: 4.2px;
+  border-bottom-right-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+.row {
+  zoom: 1;
+}
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
