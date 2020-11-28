@@ -1,33 +1,30 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <?php # Script 9.5 - register.php #2
 // This script performs an INSERT query to add a record to the users table.
 session_start();
-
-if(isset($_SESSION['user_id'])){
+$config = parse_ini_file('/var/www/private/db-config.ini'); 
+// Make the connection:
+$dbc = mysqli_connect($config['servername'], $config['username'], $config['password'], $config['dbname']) OR die ('Could not connect to MySQL: ' . mysqli_connect_error() );
+mysqli_set_charset($dbc, 'utf8');
+if(isset($_SESSION['user_id'])){     //if section id is not empty.
    $user_id = $_SESSION['user_id'];
    $username = $_SESSION['username'];
+   $first_name = $_SESSION['first_name'];
+   $last_name = $_SESSION['last_name'];
+   $email = $_SESSION['email'];
    $dob_day = $_SESSION['dob_day'];
    $dob_month = $_SESSION['dob_month'];
    $dob_year = $_SESSION['dob_year'];
    $gender = $_SESSION['gender'];
-   $email = $_SESSION['email'];
-   $first_name = $_SESSION['first_name'];
-   $last_name = $_SESSION['last_name'];
-   $regdate = $_SESSION['regdate'];
-   $bloodtype = $_SESSION['bloodtype'];
+   $blood_type = $_SESSION['blood_type'];
 } 
+
 // Check for form submission:
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include ('mysqli_connect.php');
     $errors = array(); // Initialize an error array.
- 
-    // Check for a first name:
-    if (empty($_POST['first_name'])) {
-        $errors[] = 'You forgot to enter your first name.';
-    } else {
-        $fn = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
-    }
-     
-    // Check for a last name:
+
+    $fn = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
+    
     if (empty($_POST['last_name'])) {
         $errors[] = 'You forgot to enter your last name.';
     } else {
@@ -49,80 +46,74 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $m = mysqli_real_escape_string($dbc, trim($_POST['dob_month']));
         $d = mysqli_real_escape_string($dbc, trim($_POST['dob_day']));
     }
-        if (empty($_POST['gender'])) {
+    
+    
+    if (empty($_POST['gender'])) {
         $errors[] = 'You forgot to enter your gender.';
     } else {
         $g = mysqli_real_escape_string($dbc, trim($_POST['gender']));
     }
-    if (empty($_POST['bloodtype'])) {
-        $errors[] = 'You forgot to enter your blood type.';
-    } else {
-        $b = mysqli_real_escape_string($dbc, trim($_POST['bloodtype']));
-    }
-     
-    if (empty($errors)) 
-    { 
-        $q = "UPDATE vending.acc SET first_name = '$fn' , last_name = '$ln', email = '$e', dob_day = '$d', dob_month = '$m', dob_year = '$y', gender = '$g', bloodtype='$b' WHERE user_id = '$user_id';";      
-        $r = mysqli_query ($dbc, $q); // Run the query.
-        if ($r) 
-        {
-            DEFINE('DB_USER', 'sqldev');
-            DEFINE('DB_PASSWORD', 'Kevinpook@123');
-            DEFINE('DB_HOST', 'localhost');
-            DEFINE('DB_NAME', 'vending');
-
-// Make the connection:
-            $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die('Could not connect to MySQL: ' . mysqli_connect_error());
-            mysqli_set_charset($dbc, 'utf8');
-            //$pass = sha1($password);
-            
-            $result = mysqli_query($dbc, 'SELECT * from vending.acc where user_id = ' . $user_id . '');
-            while ($row = mysqli_fetch_array($result)) 
-            {
-                $user_id = $row['user_id'];
-                $username = $row['username'];
-                $dob_day = $row['dob_day'];
-                $dob_month = $row['dob_month'];
-                $dob_year = $row['dob_year'];
-                $gender = $row['gender'];
-                $email = $row['email'];
-                $first_name = $row['first_name'];
-                $last_name = $row['last_name'];
-                $bloodtype = $row['bloodtype'];
-                $regdate = $row['registration_date'];
-            }
-            if (mysqli_num_rows($result) == 1) {
-                session_destroy();
-                session_start();
-                $_SESSION['user_id'] = $user_id;
-                $_SESSION['username'] = $username;
-                $_SESSION['dob_day'] = $dob_day;
-                $_SESSION['dob_month'] = $dob_month;
-                $_SESSION['dob_year'] = $dob_year;
-                $_SESSION['gender'] = $gender;
-                $_SESSION['email'] = $email;
-                $_SESSION['first_name'] = $first_name;
-                $_SESSION['last_name'] = $last_name;
-                $_SESSION['bloodtype'] = $bloodtype;
-                $_SESSION['regdate'] = $regdate;
-
-                header('Location: home.php');
-    } 
     
-    else {
+      if (empty($_POST['blood_type'])) {
+        $errors[] = 'You forgot to enter your blood_type.';
+    } else {
+        $b = mysqli_real_escape_string($dbc, trim($_POST['blood_type']));
+    }
+    
+    if (empty($errors)) { // If everything's OK.
+     
+        // Register the user in the database...       
+        // Make the query:
+        $q = "UPDATE vending.acc SET first_name = '$fn' , last_name = '$ln', email = '$e', dob_day = '$d', dob_month = '$m', dob_year = '$y', gender = '$g', blood_type ='$b' WHERE user_id = '$user_id';";      
+        $r = mysqli_query ($dbc, $q); // Run the query.
+        if ($r) { // If it ran OK.
+
+
+$pass = sha1($password);
+$result = mysqli_query($dbc, 'SELECT * from vending.acc where user_id = '.$user_id.'');
+while ($row = mysqli_fetch_array($result)) {
+    $user_id = $row['user_id'];
+    $username = $row['username'];
+    $dob_day = $row['dob_day'];
+    $dob_month = $row['dob_month'];
+    $dob_year = $row['dob_year'];
+    $gender = $row['gender'];
+    $email = $row['email'];
+    $blood_type = $row['blood_type'];
+    $first_name = $row['first_name'];
+    $last_name = $row['last_name'];
+    $regdate = $row['registration_date'];
+    }
+if(mysqli_num_rows($result)==1){
+    session_start();
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['username'] = $username;
+    $_SESSION['dob_day'] = $dob_day;
+    $_SESSION['dob_month'] = $dob_month;
+    $_SESSION['dob_year'] = $dob_year;
+    $_SESSION['gender'] = $gender;
+    $_SESSION['email'] = $email;
+    $_SESSION['blood_type'] = $blood_type;
+    $_SESSION['first_name'] = $first_name;
+    $_SESSION['last_name'] = $last_name;
+    $_SESSION['regdate'] = $regdate;
+
+
+    header('Location: home.php');
+    } else {
         $error = "Account is invalid!";
     }
     mysqli_close($dbc);
             // Print a message:
-            echo '<h1>Thank you!</h1>
+        echo '<h1>Thank you!</h1>
         <p>Your account has been updated!</p><p><br /></p>';  
          
         } else { // If it did not run OK.
              
             // Public message:
-            echo '<h1>System Error</h1>
-            <p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>'; 
-             
+        echo '<h1>System Error</h1>
+            <p class="error">Unable to edit due to a system error. We apologize for any inconvenience.</p>'; 
+              
             // Debugging message:
             echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $q . '</p>';
                          
@@ -142,56 +133,84 @@ error_reporting(0);?>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Profile Edit</title>
-   
+  <title>Sign Up Form</title>   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
- 
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
- 
-      <link rel="stylesheet" href="css/style3.css">
- 
-   
+  <link rel="stylesheet" href="css/style3.css">  
+  <style>
+      .bloodtype{
+          margin-bottom: 20px; 
+      }
+  </style>
 </head>
  
-<body>
-  <script>
-function onBlur(el) {
-    if (el.value == '') {
-        el.value = el.defaultValue;
-    }
-}
-</script>
-    
-<?php include "navbarParticipant.php"?>
+<body>   
+    <div class="navbar">
+        <a style="width: 19%;" href="home.php">Home</a>
+        <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
+        <a style="width: 24%;" href="StockStatus.php">Stock Status</a>
+        <a style="width: 35%;" href="Reg_Partic.php">Participant Register</a>
+    </div>
     
     <div class="header" >
-	<h1>Edit profile</h1>
-       </div> 
+        <h1>Edit profile</h1>
+    </div> 
 <div class="container">
 
-  <form id="contact" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
+  <form id="contact" action="" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
     
         <div class="row">
       <h4>Personal Information</h4>
-      <div class="input-group input-group-icon">
-        <input type="text" name="first_name" value="<?php echo $first_name;?>" onblur="onBlur(this, <?php echo "'$first_name'";?>)"/>
+      
+    <label for="first_name">First Name:</label>
+      <div class="input-group input-group-icon" >
+        <input type="text" name="first_name" value="<?php echo $first_name;?>" onblur="onBlur(this, <?php echo "'$first_name'";?>)" aria-label="first_name"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
-      <div class="input-group input-group-icon">
-        <input type="text" name="last_name" value="<?php echo $last_name;?>" onblur="onBlur(this, <?php echo "'$last_name'";?>)"/>
+    
+       <label for="last_name">Last Name:</label>
+      <div class="input-group input-group-icon" >
+        <input type="text" name="last_name" value="<?php echo $last_name;?>" onblur="onBlur(this, <?php echo "'$last_name'";?>)" aria-label="last_name"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
-      <div class="input-group input-group-icon">
-        <input type="text" name="email" value="<?php echo $email;?>" onblur="onBlur(this, <?php echo "'$email'";?>)"/>
+       
+    <label for="email">Email:</label>
+      <div class="input-group input-group-icon" >
+        <input type="text" name="email" value="<?php echo $email;?>" onblur="onBlur(this, <?php echo "'$email'";?>)" aria-label="email"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
+   
+    
+        <label for="gender">Gender:</label>
+        <div class="row">
+    <select name="gender" id="gender" class="form-group" aria-label="Gender">
+        <option value="<?php echo $gender;?>" selected="selected"><?php echo $gender;?></option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
     </div>
-     
-     
+
+        
+    <label for="bloodtype">Blood type:</label>   
+    <div class="row">
+      <select required name="blood_type" id="bloodtype" class="form-group" aria-label="Bloodtype">
+    <!--<option value="" selected="selected">Gender</option>-->
+    <option value="<?php echo $blood_type;?>" selected="selected"><?php echo $blood_type;?></option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+    </select>
+  </div>
+
+        <label for="dob_day">Date of birth:</label> 
     <div class="row">
       <div class="col-half">
-        <h4>Date of Birth</h4>
-    <select name="dob_day" id="RegistrationForm_day" aria-label="Day of Date of Birth">
+    <select name="dob_day" id="RegistrationForm_day" aria-label="RegistrationForm_day">
 <option value="<?php echo $dob_day;?>" selected="selected"><?php echo $dob_day;?></option>
 <option value="">Day</option>
 <option value="01">01</option>
@@ -252,7 +271,7 @@ function onBlur(el) {
  } else if ($dob_month == '12'){
      $month = 'December';
  }?>
-<select  name="dob_month" id="RegistrationForm_month" aria-label="Month of Date of Birth">
+<select  name="dob_month" id="RegistrationForm_month" aria-label="RegistrationForm_month">
     <option value="<?php echo $dob_month;?>" selected="selected"><?php echo $month;?></option>
 <option value="">Month</option>
 <option value="01">January</option>
@@ -268,7 +287,7 @@ function onBlur(el) {
 <option value="11">November</option>
 <option value="12">December</option>
 </select>                                                
-<select  name="dob_year" id="RegistrationForm_year" aria-label="Year of Date of Birth">
+<select  name="dob_year" id="RegistrationForm_year" aria-label="dob_year">
 <option value="<?php echo $dob_year;?>" selected="selected"><?php echo $dob_year;?></option>
 <option value="">Year</option>
 <option value="2017">2017</option>
@@ -349,50 +368,66 @@ function onBlur(el) {
 <option value="1942">1942</option>
 <option value="1941">1941</option>
 <option value="1940">1940</option>
+<option value="1939">1939</option>
+<option value="1938">1938</option>
+<option value="1937">1937</option>
+<option value="1936">1936</option>
+<option value="1935">1935</option>
+<option value="1934">1934</option>
+<option value="1933">1933</option>
+<option value="1932">1932</option>
+<option value="1931">1931</option>
+<option value="1930">1930</option>
+<option value="1929">1929</option>
+<option value="1928">1928</option>
+<option value="1927">1927</option>
+<option value="1926">1926</option>
+<option value="1925">1925</option>
+<option value="1924">1924</option>
+<option value="1923">1923</option>
+<option value="1922">1922</option>
+<option value="1921">1921</option>
+<option value="1920">1920</option>
+<option value="1919">1919</option>
+<option value="1918">1918</option>
+<option value="1917">1917</option>
+<option value="1916">1916</option>
+<option value="1915">1915</option>
+<option value="1914">1914</option>
+<option value="1913">1913</option>
+<option value="1912">1912</option>
+<option value="1911">1911</option>
+<option value="1910">1910</option>
+<option value="1909">1909</option>
+<option value="1908">1908</option>
+<option value="1907">1907</option>
+<option value="1906">1906</option>
+<option value="1905">1905</option>
+<option value="1904">1904</option>
+<option value="1903">1903</option>
+<option value="1902">1902</option>
+<option value="1901">1901</option>
+<option value="1900">1900</option>
 </select>     
 </div>
 </div>
  
-  <div class="row">
+    <div class="row">
+    <br/><br/>  
+    <div class="input-group" >
+          <input type="submit" name="submit" value="Update" id="ac" style="background-color:#1342CF; color: white;"/>      
+    </div>
+    </div>
 
-      <h4>Gender</h4>
-    <select required name="gender" id="gender" aria-label="Gender">
-<option value="<?php echo $gender;?>" selected="selected"><?php echo $gender;?></option>
-<option value="Male">Male</option>
-<option value="Female">Female</option>
-    </select>
-            </div>
-     <div class="row">
-
-      <h4>Blood Type</h4>
-    <select required name="bloodtype" id="bloodtype" aria-label="Bloodtype">
-<option value="<?php echo $bloodtype;?>" selected="selected"><?php echo $bloodtype;?></option>
-<option value="A+">A+</option>
-<option value="A-">A-</option>
-<option value="B+">B+</option>
-<option value="B-">B-</option>
-<option value="AB+">AB+</option>
-<option value="AB-">AB-</option>
-<option value="O+">O+</option>
-<option value="O-">O-</option>
-    </select>
-      </div>
-      <br/>
-    <div class="input-group">
-          <input type="submit" name="submit" value="Update" id="update"/>      
-        </div>
- 
-      </form>
-                      <?php  if (!empty($errors)) { // Report the errors.
-     
+        <?php  if (!empty($errors)) { // Report the errors.
         echo '<h1 style="color: #FF0000;">Error!</h1>
         <p class="error" style="color: #FF0000;">The following error(s) occurred:<br />';
         foreach ($errors as $msg) { // Print each error.
-            echo " - $msg<br />\n";
+        echo " - $msg<br />\n";
         }
-        echo '</p><p style="color: #FF0000;">Please try again.</p><p><br /></p>';
-          
+        echo '</p><p style="color: #FF0000;">Please try again.</p><p><br /></p>';         
     } // End of if (empty($errors)) IF.?>
 </div>
+      </form>
 </body>
 </html>
