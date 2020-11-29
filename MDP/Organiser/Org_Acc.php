@@ -6,7 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($_POST['username'] == "Username") {
 $errors[] = 'You forgot to enter your username.';
 } else {
-    $un = mysqli_real_escape_string($dbc, trim($_POST['username']));
+//    $un = mysqli_real_escape_string($dbc, trim($_POST['username']));
+    $un = htmlspecialchars($_POST['username']);
 }  
 
  
@@ -14,7 +15,8 @@ $errors[] = 'You forgot to enter your username.';
     if (empty($_POST['company_name'])) {
         $errors[] = 'You forgot to enter company name.';
     } else {
-        $cn = mysqli_real_escape_string($dbc, trim($_POST['company_name']));
+//        $cn = mysqli_real_escape_string($dbc, trim($_POST['company_name']));
+        $cn = htmlspecialchars($_POST['company_name']);
     }
 	
 	// Check for a first name:
@@ -23,26 +25,30 @@ $errors[] = 'You forgot to enter your username.';
     } else if (!preg_match("/^[\+0-9\-\(\)\s]*$/", $_POST['company_phone'])) {
         $errors[] = "Invalid contact number.";
     } else{
-        $cp = mysqli_real_escape_string($dbc, trim($_POST['company_phone']));
+//        $cp = mysqli_real_escape_string($dbc, trim($_POST['company_phone']));
+        $cp = htmlspecialchars($_POST['company_phone']);
     }
      
     // Check for an email address:
     if ($_POST['company_email']=="Company E-mail") {
         $errors[] = "You forgot to enter your company's email.";
     } else {
-        $e = mysqli_real_escape_string($dbc, trim($_POST['company_email']));
+//        $e = mysqli_real_escape_string($dbc, trim($_POST['company_email']));
+        $e = htmlspecialchars($_POST['company_email']);
     }
 
     if ($_POST['company_address']=="Company Address") {
         $errors[] = "You forgot to enter your company's address.";
     } else {
-        $a = mysqli_real_escape_string($dbc, trim($_POST['company_address']));
+//        $a = mysqli_real_escape_string($dbc, trim($_POST['company_address']));
+        $a = htmlspecialchars($_POST['company_address']);
     }
 
     if ($_POST['postal_code']=="Postal Code") {
         $errors[] = "You forgot to enter your company's Postal Code.";
     } else {
-        $c = mysqli_real_escape_string($dbc, trim($_POST['postal_code']));
+//        $c = mysqli_real_escape_string($dbc, trim($_POST['postal_code']));
+        $c = htmlspecialchars(trim($_POST['postal_code']));
     }
  
    
@@ -53,7 +59,8 @@ $errors[] = 'You forgot to enter your username.';
         } else if ($_POST['pass'] != $_POST['pass1']) {
         $errors[] = 'Your password did not match the confirmed password.';
         } else {
-            $p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+//            $p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+            $p = $_POST['pass'];
             $p = password_hash($p, PASSWORD_DEFAULT);
             } 
      
