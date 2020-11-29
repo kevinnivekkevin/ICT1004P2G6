@@ -23,53 +23,61 @@ if(isset($_SESSION['user_id'])){     //if section id is not empty.
     include ('mysqli_connect.php');
     $errors = array(); // Initialize an error array.
 
-    $fn = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
+//    $fn = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
+    $fn = htmlspecialchars($_POST['first_name']);
     
     if (empty($_POST['last_name'])) {
         $errors[] = 'You forgot to enter your last name.';
     } else {
-        $ln = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
+//        $ln = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
+        $fn = htmlspecialchars($_POST['first_name']);
     }
      
     // Check for an email address:
     if ($_POST['email']=="E-mail") {
         $errors[] = 'You forgot to enter your email address.';
     } else {
-        $e = mysqli_real_escape_string($dbc, trim($_POST['email']));
+//        $e = mysqli_real_escape_string($dbc, trim($_POST['email']));
+        $e = htmlspecialchars($_POST['email']);
     }
  
     // DOB
     if (empty($_POST['dob_year']) || empty($_POST['dob_month']) || empty($_POST['dob_day'])) {
         $errors[] = 'You forgot to enter your date of birth.';
     } else {
-        $y = mysqli_real_escape_string($dbc, trim($_POST['dob_year']));
-        $m = mysqli_real_escape_string($dbc, trim($_POST['dob_month']));
-        $d = mysqli_real_escape_string($dbc, trim($_POST['dob_day']));
+//        $y = mysqli_real_escape_string($dbc, trim($_POST['dob_year']));
+//        $m = mysqli_real_escape_string($dbc, trim($_POST['dob_month']));
+//        $d = mysqli_real_escape_string($dbc, trim($_POST['dob_day']));
+        $y = htmlspecialchars($_POST['dob_year']);
+        $m = htmlspecialchars($_POST['dob_month']);
+        $d = htmlspecialchars($_POST['dob_day']);
     }
     
     
     if (empty($_POST['gender'])) {
         $errors[] = 'You forgot to enter your gender.';
     } else {
-        $g = mysqli_real_escape_string($dbc, trim($_POST['gender']));
+//        $g = mysqli_real_escape_string($dbc, trim($_POST['gender']));
+        $g = htmlspecialchars($_POST['gender']);
     }
     
       if (empty($_POST['blood_type'])) {
         $errors[] = 'You forgot to enter your blood_type.';
     } else {
-        $b = mysqli_real_escape_string($dbc, trim($_POST['blood_type']));
+//        $b = mysqli_real_escape_string($dbc, trim($_POST['blood_type']));
+        $b = htmlspecialchars($_POST['blood_type']);
     }
     
     if (empty($errors)) { // If everything's OK.
      
         // Register the user in the database...       
         // Make the query:
-        $q = "UPDATE vending.acc SET first_name = '$fn' , last_name = '$ln', email = '$e', dob_day = '$d', dob_month = '$m', dob_year = '$y', gender = '$g', blood_type ='$b' WHERE user_id = '$user_id';";      
+        $q = "UPDATE vending.acc SET first_name = '$fn' , last_name = '$ln', email = '$e', dob_day = '$d', dob_month = '$m', dob_year = '$y', gender = '$g', bloodtype ='$b' WHERE user_id = '$user_id';";      
         $r = mysqli_query ($dbc, $q); // Run the query.
         if ($r) { // If it ran OK.
 
 
-$pass = sha1($password);
+//$pass = sha1($password);
 $result = mysqli_query($dbc, 'SELECT * from vending.acc where user_id = '.$user_id.'');
 while ($row = mysqli_fetch_array($result)) {
     $user_id = $row['user_id'];
