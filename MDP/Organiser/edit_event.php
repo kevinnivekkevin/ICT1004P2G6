@@ -40,24 +40,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Check for a first name:
 	if (empty($_POST['Event_Name'])) {
 		$errors[] = 'Please enter event name.';
-	} else {
-		$n = mysqli_real_escape_string($dbc, trim($_POST['Event_Name']));
+	} else {               
+//		$n = mysqli_real_escape_string($dbc, trim($_POST['Event_Name']));
+                $n = htmlspecialchars($_POST['Event_Name']);
 	}
 	
 	// Check for a first name:
 	if (empty($_POST['Event_Location'])) {
 		$errors[] = 'Please enter event location.';
 	} else {
-		$l = mysqli_real_escape_string($dbc, trim($_POST['Event_Location']));
+//                $l = mysqli_real_escape_string($dbc, trim($_POST['Event_Location']));
+                $l = htmlspecialchars($_POST['Event_Location']);
 	}
 	
 	// DOB
     if (empty($_POST['event_year']) || empty($_POST['event_month']) || empty($_POST['event_day'])) {
         $errors[] = 'You forgot to enter the date of event.';
     } else {
-        $y = mysqli_real_escape_string($dbc, trim($_POST['event_year']));
-        $m = mysqli_real_escape_string($dbc, trim($_POST['event_month']));
-        $d = mysqli_real_escape_string($dbc, trim($_POST['event_day']));
+//        $y = mysqli_real_escape_string($dbc, trim($_POST['event_year']));
+//        $m = mysqli_real_escape_string($dbc, trim($_POST['event_month']));
+//        $d = mysqli_real_escape_string($dbc, trim($_POST['event_day']));
+        $y = htmlspecialchars($_POST['event_year']);
+        $m = htmlspecialchars($_POST['event_month']);
+        $d = htmlspecialchars($_POST['event_day']);
     }
     if(isset($_POST['event_status'])) {
         
