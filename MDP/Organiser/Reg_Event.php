@@ -16,30 +16,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (empty($_POST['Event_Name'])) {
 		$errors[] = 'Please enter event name.';
 	} else {
-		$name = mysqli_real_escape_string($dbc, trim($_POST['Event_Name']));
+//		$name = mysqli_real_escape_string($dbc, trim($_POST['Event_Name']));
+                $name = htmlspecialchars($_POST['Event_Name']);
 	}
 	
 	// Check for a first name:
 	if (empty($_POST['Event_Location'])) {
 		$errors[] = 'Please enter event location.';
 	} else {
-		$location = mysqli_real_escape_string($dbc, trim($_POST['Event_Location']));
+//		$location = mysqli_real_escape_string($dbc, trim($_POST['Event_Location']));
+                $location = htmlspecialchars($_POST['Event_Location']);
 	}
 	
 	// DOB
     if (empty($_POST['event_year']) || empty($_POST['event_month']) || empty($_POST['event_day'])) {
         $errors[] = 'You forgot to enter the date of event.';
     } else {
-        $y = mysqli_real_escape_string($dbc, trim($_POST['event_year']));
-        $m = mysqli_real_escape_string($dbc, trim($_POST['event_month']));
-        $d = mysqli_real_escape_string($dbc, trim($_POST['event_day']));
+//        $y = mysqli_real_escape_string($dbc, trim($_POST['event_year']));
+//        $m = mysqli_real_escape_string($dbc, trim($_POST['event_month']));
+//        $d = mysqli_real_escape_string($dbc, trim($_POST['event_day']));
+        $y = htmlspecialchars($_POST['event_year']);
+        $m = htmlspecialchars($_POST['event_month']);
+        $d = htmlspecialchars($_POST['event_day']);
     }
 	
     // DOB
     if (empty($_POST['XSC']) || empty($_POST['XSL']) || empty($_POST['SC']) || empty($_POST['SL']) || empty($_POST['MC']) || empty($_POST['ML']) || empty($_POST['LC']) || empty($_POST['LL']) || empty($_POST['XLC']) || empty($_POST['XLL'])) {
 		$errors[] = 'You forgot to enter the shirt measurements.';
 	} else {
-		$XSC = mysqli_real_escape_string($dbc, trim($_POST['XSC']));
+        $XSC = mysqli_real_escape_string($dbc, trim($_POST['XSC']));
         $XSL = mysqli_real_escape_string($dbc, trim($_POST['XSL']));
         $SC = mysqli_real_escape_string($dbc, trim($_POST['SC']));
         $SL = mysqli_real_escape_string($dbc, trim($_POST['SL']));
