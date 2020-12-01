@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
     <head>
         <title>Marathon World</title>
         <meta charset="UTF-8">
@@ -70,8 +70,8 @@ and open the template in the editor.
                     </article>
                 </div>
             </section>
-            <!--Section for cats -->
-            <section id="cats">
+            
+            <section id="followingevents" aria-label="followingevents">
                 
                 <div class="row">
                     <article class="col-sm">
@@ -99,5 +99,5 @@ and open the template in the editor.
         <?php 
         include "footer.inc.php"
         ?>
-    </body>
+        </body>
 </html>
