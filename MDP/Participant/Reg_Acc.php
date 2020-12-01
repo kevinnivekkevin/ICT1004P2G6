@@ -271,7 +271,7 @@
     </div>
         
         <div class="row">   
-    <div class="input-group" name="submit">
+    <div class="input-group" id="submit">
             <input type="submit" name="submit" value="Register" id="register" style="background-color: blue;color:white" aria-label="submit"/>
     </div>
     </div>
