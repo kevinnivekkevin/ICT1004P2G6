@@ -92,7 +92,6 @@ if(password_verify($password, $hash_pass)){
 		
 </form>
         <p>Not yet a member? <a href="Reg_Acc.php">Sign up</a></p>
-        <br>
         <p>Are you an admin? <a href="/MDP/Organiser/Org_Login.php">Login here</a></p>
        
 
