@@ -25,7 +25,28 @@ $res = mysqli_query($connection, $qu);
         <title>Pack Registration</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style3.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <!--jQuery-->
+        <script defer    
+        src="https://code.jquery.com/jquery-3.4.1.min.js"    
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="    
+        crossorigin="anonymous">
+        </script>
+        
+        <!--Bootstrap JS-->
+        <script defer   
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"    
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"    
+        crossorigin="anonymous">
+        </script>
+        <!-- Custom JS-->
+<script defer src="js/main.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -33,17 +54,10 @@ $res = mysqli_query($connection, $qu);
     </head>
     <body>
         <main>
-        <div class="navbar">
-            <a style="width: 19%;" href="home.php">Home</a>
-            <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
-            <a style="width: 24%;" href="StockStatus.php">Stock Status</a>
-            <a style="width: 35%;" href="Reg_Partic.php">Participant Register</a>
-            <a class="active" style="width: 35%;" href="Pack_Registration.php">Pack Reservation</a>
-        </div>
-        <div class="header" >
-            <h1>Pack Reservation</h1>
-        </div> 
+        <?php include "navbarParticipant.php";?>
+        
         <div class="container">
+            <h1>Pack Reservation</h1>
             <form id="cont" method="post" action="Process_Reserve.php" style="position: relative; z-index: 1;">
                 <div class="row">
 
