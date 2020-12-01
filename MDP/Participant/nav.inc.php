@@ -46,7 +46,12 @@ $result = mysqli_query($dbc, 'SELECT * from vending.org');
             ?></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">Logout</a>
+                <?php
+                if(is_null($username)){
+                }else{
+                    echo '<a class="nav-link" href="logout.php">Logout</a>';
+                }
+                ?>
             </li>
         </ul>
     </div>
