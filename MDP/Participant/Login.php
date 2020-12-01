@@ -78,16 +78,16 @@ if(password_verify($password, $hash_pass)){
         </div>
         <div class="row">
       <div class="input-group input-group-icon">
-          <input type="text" name="Username" required maxlength="45" placeholder="Username"/>
+          <input type="text" name="Username" required maxlength="45" placeholder="Username" aria-label="Username"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
       <div class="input-group input-group-icon">
-          <input type="password" name="Password" required maxlength="45" placeholder="Password"/>
+          <input type="password" name="Password" required maxlength="45" placeholder="Password" aria-label="Password"/>
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
 	<br/><br/>
         </div>
-	<input type="submit" name="login" value="Submit" style="background-color: #1569C7;color: white;"/><br/><br/>
+	<input type="submit" name="login" value="Submit" aria-label="Submit" style="background-color: #1569C7;color: white;"/><br/><br/>
 	
 		
 </form>
