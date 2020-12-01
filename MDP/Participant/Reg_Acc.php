@@ -7,13 +7,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-  <link rel="stylesheet" href="css/style3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style3.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <!--jQuery-->
+        <script defer    
+        src="https://code.jquery.com/jquery-3.4.1.min.js"    
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="    
+        crossorigin="anonymous">
+        </script>
+        
+        <!--Bootstrap JS-->
+        <script defer   
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"    
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"    
+        crossorigin="anonymous">
+        </script>
+        <!-- Custom JS-->
+<script defer src="js/main.js"></script>
 </head>
 <body>  
+  <?php
+        include 'nav.inc.php';
+    ?>
 <main class="container">
-  <div class="header"  >
     <h1>Account Registration</h1>  
-</div> 
     <form action="process_reg.php" method="post">
    
     <div class="row">
@@ -34,10 +56,9 @@
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
     </div>
-        
-    <div class="row">
-      <div class="col-half">
         <h4>Date of Birth</h4>
+    <div class="row">
+      <article class="col-sm">
             <select name="dob_day" id="RegistrationForm_day" aria-label="RegistrationForm_day">
             <option value="" selected="selected">Day</option>
             <option value="01">01</option>
@@ -72,6 +93,8 @@
             <option value="30">30</option>
             <option value="31">31</option>
             </select>
+      </article>
+      <article class="col-sm">
             <select  name="dob_month" id="RegistrationForm_month" aria-label="RegistrationForm_month">
             <option value="" selected="selected">Month</option>
             <option value="01">January</option>
@@ -86,7 +109,9 @@
             <option value="10">October</option>
             <option value="11">November</option>
             <option value="12">December</option>
-            </select>                                                
+            </select>
+      </article>
+      <article class="col-sm">                                                
             <select  name="dob_year" id="RegistrationForm_year" aria-label="RegistrationForm_year">
             <option value="" selected="selected">Year</option>
             <option value="2020">2020</option>
@@ -210,20 +235,22 @@
             <option value="1902">1902</option>
             <option value="1901">1901</option>
             <option value="1900">1900</option>
-            </select>     
-            </div>
+            </select>
+        </article>
     </div>
         
     <div class="row">
+      <article class="col-md">
       <h4>Gender</h4>
     <select name="gender" id="gender" aria-label="Gender">
         <option value="">Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
-    </select>
+    </select></article>
     </div>
         
       <div class="row">
+        <article class="col-md">
       <h4>Blood Type</h4>
     <select required name="blood_type" id="bloodtype" aria-label="Bloodtype">
     <!--<option value="" selected="selected">Gender</option>-->
@@ -236,7 +263,7 @@
     <option value="AB-">AB-</option>
     <option value="O+">O+</option>
     <option value="O-">O-</option>
-    </select>
+    </select></article>
       </div> 
      
     <div class="row">
