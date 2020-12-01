@@ -41,7 +41,11 @@ if(password_verify($password, $hash_pass)){
         $_SESSION['regdate'] = $regdate;
         $_SESSION['bloodtype'] = $bloodtype;
 
-        header('Location: home.php');
+	if($username == "admin"){
+            header('Location: /MDP/Organiser/home1.php');
+        }else{
+            header('Location: home.php');
+        }
         }
 }else {
         $error = "Username or Password incorrect";
