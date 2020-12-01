@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($success) 
     {
     
-      define("MYSQLUSER", "sqldev");
-define("MYSQLPASS", "Password1!");
+define("MYSQLUSER", "sqldev");
+define("MYSQLPASS", "Kevinpook@123");
 define("HOSTNAME", "localhost");
 define("MYSQLDB", "vending");
 
@@ -87,10 +87,10 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
         } 
 
         if ($r) { // If it ran OK.
-            DEFINE('DB_USER', 'sqldev');
-            DEFINE('DB_PASSWORD', 'Password1!');
-            DEFINE('DB_HOST', 'localhost');
-            DEFINE('DB_NAME', 'vending');
+            define("MYSQLUSER", "sqldev");
+define("MYSQLPASS", "Kevinpook@123");
+define("HOSTNAME", "localhost");
+define("MYSQLDB", "vending");
             $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
             $update = "UPDATE vending.$pickup_location SET $shirtsize=($shirtsize -1) WHERE event_id = $event_id";
             $updated = mysqli_query($connection, $update);
