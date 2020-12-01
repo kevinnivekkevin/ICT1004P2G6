@@ -77,7 +77,7 @@ and open the template in the editor.
                     <article class="col-sm">
                         <h3>2020 Sundown Marathon</h3>                   
                         <figure class="imgcaptions">
-                            <img class="article_images img-thumbnail" src="images/2.jpg" alt="Osim Sundown Marathon Image"/>
+                            <img class="article_images img-thumbnail" src="images/4.jpg" alt="Osim Sundown Marathon Image"/>
                             <!-- </a> -->
                             <figcaption>2020 Sundown Marathon</figcaption>
                         </figure>
@@ -92,7 +92,7 @@ and open the template in the editor.
                     <article class="col-sm">
                         <h3>Garmin Marathon 2020</h3>
                         <figure class="imgcaptions">
-                            <img class="article_images img-thumbnail" src="images/3.jpg" alt="GarminMarathon"/>
+                            <img class="article_images img-thumbnail" src="images/2.jpg" alt="GarminMarathon"/>
                             <!-- </a> -->
                             <figcaption>Garmin Marathon </figcaption>
                         </figure>
@@ -102,7 +102,7 @@ and open the template in the editor.
                         
                         <h3>Home Team NS Run 2020</h3>
                         <figure class="imgcaptions">
-                           <img class="article_images img-thumbnail" src="images/4.jpg" alt="Home team"/>
+                           <img class="article_images img-thumbnail" src="images/3.jpg" alt="Home team"/>
                             <!-- </a> -->
                             <figcaption>Home Team NS Run 2020</figcaption>
                         </figure>
