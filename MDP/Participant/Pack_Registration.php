@@ -32,6 +32,7 @@ $res = mysqli_query($connection, $qu);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
+        <main>
         <div class="navbar">
             <a style="width: 19%;" href="home.php">Home</a>
             <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
@@ -47,7 +48,7 @@ $res = mysqli_query($connection, $qu);
                 <div class="row">
 
                     <h4>List of Registered Events:</h4>
-                    <select name='event_id' style="width: 75%;">        
+                    <select name='event_id' style="width: 75%;" aria-label="Event selection">        
 <?php
 while ($row = $res->fetch_assoc()) {
     unset($id, $name);
@@ -61,7 +62,7 @@ while ($row = $res->fetch_assoc()) {
                 </div>
                 <div class="row">
                     <h4>Pickup location</h4>
-                    <select name="pickup_location" required>
+                    <select name="pickup_location" required aria-label="Pickup location">
                         <option value="" selected="selected">Pickup Location</option>
                         <option value="BPP">Bukit Panjang Plaza</option>
                         <option value="CSM">City Square Mall</option>
@@ -88,7 +89,7 @@ while ($row = $res->fetch_assoc()) {
 
                 <div class="row">
                     <h4>Water bottle selection</h4>
-                    <select name="bottle_color" required>
+                    <select name="bottle_color" required aria-label="Bottle Color">
                         <option value="" selected="selected">Bottle Color</option>
                         <option value="White">White</option>
                         <option value="Black">Black</option>
@@ -116,6 +117,7 @@ if (isset($_POST['size'])) {
                     ?>
 
         </div>
+        </main>
     </body>
 
 </html>
