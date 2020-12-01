@@ -137,7 +137,7 @@ while ($row = $res->fetch_assoc()) {
 
                     <h4>Payment Details:</h4>
                     <div class="input-group" >
-                        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked=checked/>
+                        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="checked"/>
                         <label for="payment-method-card" style="width: 50%;"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
 
                         <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal"/>
