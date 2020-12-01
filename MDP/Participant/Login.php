@@ -68,7 +68,7 @@ if(password_verify($password, $hash_pass)){
        </div> 
     <div class="container">
 	<div class="row" >
-	<h2 style="color: #f00;"> <?php echo $error ?></h2>
+	<h2 style="color: #f00;"> &nbsp;<?php echo $error ?></h2>
        </div>
 <form method="post">
     
