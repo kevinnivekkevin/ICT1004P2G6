@@ -124,7 +124,7 @@ error_reporting(0);
                 <div class="row">
 
                     <h4>List of Events:</h4>
-                    <select name='event_id' style="width: 75%;"><?php
+                    <select name='event_id' style="width: 75%;" aria-label="Event List"><?php
 while ($row = $res->fetch_assoc()) {
 
     unset($id, $name);
@@ -144,19 +144,19 @@ while ($row = $res->fetch_assoc()) {
                         <label for="payment-method-paypal" style="width: 50%;"> <span><i class="fa fa-cc-paypal"></i>Paypal</span></label>
                     </div>
                     <div class="input-group input-group-icon" >
-                        <input type="text" placeholder="Card Number" />
+                        <input type="text" placeholder="Card Number" aria-label="Card Number"/>
                         <div class="input-icon"><i class="fa fa-credit-card"></i></div>
                     </div>
 
                     <div class="col-half" style = "padding-right: 0px;">
                         <div class="input-group input-group-icon" >
-                            <input type="text" placeholder="Card CVC"/>
+                            <input type="text" placeholder="Card CVC" aria-label="Card CVC"/>
                             <div class="input-icon"><i class="fa fa-user"></i></div>
                         </div>
                     </div>
                     <div class="col-half">
                         <div class="input-group"> 
-                            <select style = "width: 50%;"> 
+                            <select style = "width: 50%;" aria-label="Card Expiry Month"> 
                                 <option>January</option>
                                 <option>February</option>
                                 <option>March</option>
@@ -170,7 +170,7 @@ while ($row = $res->fetch_assoc()) {
                                 <option>November</option>
                                 <option>December</option>
                             </select>
-                            <select style = "width: 50%;">
+                            <select style = "width: 50%;" aria-label="Card Expiry Year">
                                 <option>2020</option>
                                 <option>2021</option>
                                 <option>2022</option>
