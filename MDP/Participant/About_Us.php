@@ -46,24 +46,22 @@ and open the template in the editor.
             
             <section id="who" class="container">
                 
-                <!--Section for Who are we? -->
                 <h2>Who are we?</h2>
                 <div class="row">
-                    <article class="col-sm">
-                    <!--article just indicates that the section is for an article post/etc.. -->
+                    <article class="col-sm" aria-label="Who we are article">
+                    
                             <p> We are a group that has members who loves running and some who simply just hate it. We decided to come together
                             to build a community that everyone fits into simply by joining in events.</p>
                     </article>
                 </div>
             </section>
             
-            <!--Section for cats -->
-            <section id="About Us" class="container">
-                
+            
+            <section id="AboutUs" class="container">
               <h2>About Us?</h2>
                 <div class="row">
-                    <article class="col-sm">
-                    <!--article just indicates that the section is for an article post/etc.. -->
+                    <article class="col-sm" aria-label="About Us article">
+                    
                         <p> At AiPao, we believe that through marathons, non running lovers or running lovers can be brought together as 1 big 
                             community to conquer any amount of distance put between them and the finish line. Run, jog or walk, as long as you
                             cross the finish line, you already are a better version of yourself. </p>
