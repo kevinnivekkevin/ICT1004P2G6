@@ -9,7 +9,7 @@ if(isset($_SESSION['user_id'])){
    $dob_year = $_SESSION['dob_year'];
    $gender = $_SESSION['gender'];
    $email = $_SESSION['email'];
-   $blood_type = $_SESSION['blood_type'];
+   $bloodtype = $_SESSION['bloodtype'];
    $first_name = $_SESSION['first_name'];
    $last_name = $_SESSION['last_name'];
    $regdate = $_SESSION['regdate'];
@@ -37,21 +37,17 @@ error_reporting(0);
     </div> 
     <div class="container">
         <h4 style="font-size: 30px; text-align: center;">Welcome <?php echo $username;?></h4><hr><br/><br/>
-    <div class="row">
+   <div class="row">
         <img src="css/profile.png" alt="Profile Pic" height="150" width="150" style="float: right;">
 	<h3 style="display: inline;">Username: </h3><br/><?php echo $username;?><br/><br/>
         <h3 style="display: inline;">Date of birth: </h3><br/><?php echo $dob_day."/".$dob_month."/".$dob_year;?><br/><br/>
-        <h3 style="display: inline;">Gender: </h3><br/><?php echo $gender;?> <br/><br/>
-        <h3 style="display: inline;">Blood type: </h3><br/><?php echo $blood_type;?><br/><br/>
-        <div class="e"><a href="edit.php" style="float: right; padding-right:5%; display:inline;">Update Profile</a></div><br/><br/> 
-        <div class="delete"><a href="logout.php" style="float: right; padding-right:5%; display:inline;">Delete User</a></div><br/><br/>
-        
-        
+        <h3 style="display: inline;">Gender: </h3><br/><?php echo $gender;?> <br/><br/>     
+        <h3 style="display: inline;">Blood type: </h3><br/><?php echo $bloodtype;?>
+        <div class="e"><a href="edit.php" style="float: right; padding-right:5%; display:inline;">Update Profile</a></div><br/>
         <h3 style="display: inline;">Full name: </h3><br/><?php echo $first_name . " " . $last_name;?><br/><br/>
         <h3 style="display: inline;">Date Registered: </h3><br/><?php echo $regdate;?><br/><br/>
         </div>
-        <br/><br/>
-        
+        <br/><br/>      
         <div class="row">
             <div class="e">
         <b style="font-size: 24px">|</b><a href="All_Events.php" style="font-size: 20px;"> All Events </a>  
