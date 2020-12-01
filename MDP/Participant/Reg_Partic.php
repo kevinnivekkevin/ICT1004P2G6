@@ -120,7 +120,7 @@ error_reporting(0);
             <h1>Register for event</h1>
         </div> 
         <div class="container">
-            <form id="cont" action="" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
+            <form id="cont" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
                 <div class="row">
 
                     <h4>List of Events:</h4>
@@ -137,7 +137,7 @@ while ($row = $res->fetch_assoc()) {
 
                     <h4>Payment Details:</h4>
                     <div class="input-group" >
-                        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked="true"/>
+                        <input type="radio" name="payment-method" value="card" id="payment-method-card" checked=checked/>
                         <label for="payment-method-card" style="width: 50%;"><span><i class="fa fa-cc-visa"></i>Credit Card</span></label>
 
                         <input type="radio" name="payment-method" value="paypal" id="payment-method-paypal"/>
