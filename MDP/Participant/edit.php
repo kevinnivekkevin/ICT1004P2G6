@@ -152,6 +152,7 @@ error_reporting(0);?>
 </head>
  
 <body>   
+   <main>
     <div class="navbar">
         <a style="width: 19%;" href="home.php">Home</a>
         <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
@@ -436,5 +437,6 @@ error_reporting(0);?>
     } // End of if (empty($errors)) IF.?>
 </div>
       </form>
+   </main>
 </body>
 </html>
