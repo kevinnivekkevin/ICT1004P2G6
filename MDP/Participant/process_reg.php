@@ -65,11 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $g = htmlspecialchars($_POST['gender']);
     }
 
-    if (empty($_POST['blood_type'])) {
+    if (empty($_POST['bloodtype'])) {
         $errors[] = 'You forgot to enter your blood type.';
     } else {
 //        $g = mysqli_real_escape_string($dbc, trim($_POST['gender']));
-        $bt = htmlspecialchars($_POST['blood_type']);
+        $bt = htmlspecialchars($_POST['bloodtype']);
     }
     
     // Check for an email address:
