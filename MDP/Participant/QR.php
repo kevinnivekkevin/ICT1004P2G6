@@ -39,12 +39,7 @@ $query = "SELECT shirt_size, bib_number FROM vending.RE WHERE user_id = $user_id
 </head>
 <body>
 
-      <div class="navbar">
-  <a style="width: 19%;" href="home.php">Home</a>
-  <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
-  <a style="width: 24%;" href="StockStatus.php">Stock Status</a>
-  <a style="width: 35%;" href="Reg_Partic.php">Participant Register</a>
-</div>
+<?php include "navbarParticipant.php" ?>
     <div class="header" >
 	<h1>QR Code</h1>
        </div> 
