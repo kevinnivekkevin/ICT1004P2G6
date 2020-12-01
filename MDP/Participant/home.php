@@ -60,13 +60,6 @@ error_reporting(0);
         <b style="font-size: 24px">|</b><a href="logout.php" style="font-size: 20px;"> Log Out </a><b style="font-size: 24px">|</b> 
 </div>
         </div>
-<?php
-      if (isset($_GET['delete'])){
-        $id = $_GET['delete'];
-        include ('mysqli_connect.php');
-	$mysqli->query("DELETE FROM vending.acc WHERE user_id=$id") or die($mysqli->error());
-            }        
-      ?>
 </div>
 </body>
 </html>
