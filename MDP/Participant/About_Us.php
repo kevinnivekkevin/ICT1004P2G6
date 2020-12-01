@@ -37,11 +37,17 @@ and open the template in the editor.
       <?php 
       include "nav.inc.php"
       ?>
-        <header class="jumbotron text-center"> <!-- class="text-center" centralizes the header -->     
-            <h1>About AiPao Marathon World</h1>
-            <h2>A place where we all run from our problems!</h2>
+        <header style="background-image: url('images/sg-marathon-2016-stats.jpg');">
+            <div class="bg-shadow banner-bg-shadow"></div>
+            <div class="header__content-wrapper">
+            <h2 class="main-title">About AiPao Marathon World</h2>
+                <nav>
+                    <ul>
+                        <h3>A place where we all run from our problems!</h3>
+                    </ul>
+                </nav>
+            </div>
         </header>
-
         <main class="container">
             
             <section id="who" class="container">
