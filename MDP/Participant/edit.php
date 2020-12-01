@@ -1,4 +1,3 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <?php # Script 9.5 - register.php #2
 // This script performs an INSERT query to add a record to the users table.
 session_start();
 $config = parse_ini_file('/var/www/private/db-config.ini'); 
@@ -165,26 +164,26 @@ error_reporting(0);?>
     </div> 
 <div class="container">
 
-  <form id="contact" action="" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
+  <form id="contact" method="post" onsubmit="return configForm(this);" style="position: relative; z-index: 1;">
     
         <div class="row">
       <h4>Personal Information</h4>
       
     <label for="first_name">First Name:</label>
       <div class="input-group input-group-icon" >
-        <input type="text" name="first_name" value="<?php echo $first_name;?>" onblur="onBlur(this, <?php echo "'$first_name'";?>)" aria-label="first_name"/>
+        <input id="first_name" type="text" name="first_name" value="<?php echo $first_name;?>" onblur="onBlur(this, <?php echo "'$first_name'";?>)" aria-label="first_name"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
     
        <label for="last_name">Last Name:</label>
       <div class="input-group input-group-icon" >
-        <input type="text" name="last_name" value="<?php echo $last_name;?>" onblur="onBlur(this, <?php echo "'$last_name'";?>)" aria-label="last_name"/>
+        <input id="last_name" type="text" name="last_name" value="<?php echo $last_name;?>" onblur="onBlur(this, <?php echo "'$last_name'";?>)" aria-label="last_name"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
        
     <label for="email">Email:</label>
       <div class="input-group input-group-icon" >
-        <input type="text" name="email" value="<?php echo $email;?>" onblur="onBlur(this, <?php echo "'$email'";?>)" aria-label="email"/>
+        <input id="email" type="text" name="email" value="<?php echo $email;?>" onblur="onBlur(this, <?php echo "'$email'";?>)" aria-label="email"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
    
@@ -192,7 +191,7 @@ error_reporting(0);?>
         <label for="gender">Gender:</label>
         <div class="row">
     <select name="gender" id="gender" class="form-group" aria-label="Gender">
-        <option value="<?php echo $gender;?>" selected="selected"><?php echo $gender;?></option>
+        <option value="<?php echo $gender;?>" selected="selected">&nbsp;<?php echo $gender;?></option>
         <option value="male">Male</option>
         <option value="female">Female</option>
     </select>
@@ -203,7 +202,7 @@ error_reporting(0);?>
     <div class="row">
       <select required name="blood_type" id="bloodtype" class="form-group" aria-label="Bloodtype">
     <!--<option value="" selected="selected">Gender</option>-->
-    <option value="<?php echo $blood_type;?>" selected="selected"><?php echo $blood_type;?></option>
+    <option value="<?php echo $blood_type;?>" selected="selected">&nbsp;<?php echo $blood_type;?></option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
@@ -215,10 +214,10 @@ error_reporting(0);?>
     </select>
   </div>
 
-        <label for="dob_day">Date of birth:</label> 
+        <label for="dob">Date of birth:</label> 
     <div class="row">
       <div class="col-half">
-    <select name="dob_day" id="RegistrationForm_day" aria-label="RegistrationForm_day">
+    <select id="dob" name="dob_day" aria-label="RegistrationForm_day">
 <option value="<?php echo $dob_day;?>" selected="selected"><?php echo $dob_day;?></option>
 <option value="">Day</option>
 <option value="01">01</option>
