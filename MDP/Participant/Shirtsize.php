@@ -40,7 +40,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
 }?></select>
 	<br/><br/>
         </div>
-	<h4>Chest width (Inches):</h4> <input type="text" name="cw" step="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46"><br/><br/>
+	<h4>Chest width (Inches):</h4> <input type="text" name="cw" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46"><br/><br/>
 	<br/><br/>
 	<input type="submit" name="contactForm" value="Submit"/><br/><br/>
 	
