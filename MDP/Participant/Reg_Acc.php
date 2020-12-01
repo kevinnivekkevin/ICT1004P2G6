@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="css/style3.css">
 </head>
 <body>  
-<div class="header"  >
+<main class="container">
+  <div class="header"  >
     <h1>Account Registration</h1>  
 </div> 
-<main class="container">
     <form action="process_reg.php" method="post">
    
     <div class="row">
