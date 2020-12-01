@@ -4,8 +4,8 @@ $result = mysqli_query($dbc, 'SELECT * from vending.org');
                         
 
 ?>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
-<a class="navbar-brand" href="logo"><img class="logo" src="images/Logo.png" alt="LOGO" title="unsplash"></a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<a class="navbar-brand" href="logo"><img class="logo" src="images/Logo.png" alt="LOGO" title="unsplash" width="100" height="60"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
