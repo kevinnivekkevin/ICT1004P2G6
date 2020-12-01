@@ -10,15 +10,25 @@ $result = mysqli_query($dbc, 'SELECT * from vending.org');
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="index.php">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="Reg_Acc.php">Sign Up</a></li>
-            <li class="nav-item"><a class="nav-link" href="About_Us.php">About Us</a></li>
+      <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Events
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+              <a class="dropdown-item" href="/MDP/Participant/index.php#event1">Standard Chartered</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/MDP/Participant/index.php#event1">Osim Sundown</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/MDP/Participant/index.php#event2">Garmin</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/MDP/Participant/index.php#event2">Home Team NS</a>
+          </div>
+        </li>
+            <li class="nav-item"><a class="nav-link" href="/MDP/Participant/Reg_Acc.php">Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="/MDP/Participant/About_Us.php">About Us</a></li>
         </ul>
-    </div>
-
-    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-        <ul class="navbar-nav text-right">
+        <ul class="navbar-nav">
             <li class="nav-item">
             <?php
                 session_start();
