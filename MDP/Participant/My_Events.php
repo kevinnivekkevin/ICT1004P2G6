@@ -27,7 +27,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
       <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-    
+<main>
     
 <?php include "navbarParticipant.php"?>
     
@@ -85,7 +85,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
 
         
         </div>
-        
+	</main>
     </body>
 </html>
 
