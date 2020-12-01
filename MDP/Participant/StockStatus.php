@@ -26,6 +26,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
 </head>
 
 <body>
+	<main>
 <?php include "navbarParticipant.php"?>
     <div class="header" >
 	<h1>Stock Status</h1>
@@ -35,7 +36,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
     <div class="row">
 	
 	<h4>List of Events:</h4>
-    <select name='event_id'><?php while ($row = $result->fetch_assoc()) {
+    <select name='event_id' aria-label="Event List"><?php while ($row = $result->fetch_assoc()) {
 
                   unset($id, $name);
                   $id = $row['event_id'];
@@ -52,6 +53,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
     
 
     </div>
+	</main>
 </body>
 
 </html>
