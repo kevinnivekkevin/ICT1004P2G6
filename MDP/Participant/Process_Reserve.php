@@ -71,11 +71,17 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
             $Event_Name = $row2['Event_Name'];
             $i++;
         };
-
+        //generate bib num
+        $que = "SELECT IFNULL(MAX(bib_number),5000) FROM vending.RE;";
+        $re = mysqli_query($connection, $que);
+        while ($row1 = mysqli_fetch_array($re)) {
+        $bib = $row1['IFNULL(MAX(bib_number),5000)'];
+        $bib += 1;
+        }
         if ($i > 0) 
         {
             $q = "INSERT INTO vending.reserve(event_id, user_id, email, Event_Name, shirt_size, bib_number, bottle_color, pickup_location,collected)
-        SELECT event_id, user_id, email, Event_Name, '$shirtsize', bib_number, '$bottle_color', '$pickup_location', 'N' from vending.REE WHERE user_id = '$user_id'AND event_id='$event_id';";
+        SELECT event_id, user_id, email, Event_Name, '$shirtsize', $bib', '$bottle_color', '$pickup_location', 'N' from vending.REE WHERE user_id = '$user_id'AND event_id='$event_id';";
 
             $r = mysqli_query($dbc, $q); // Run the query.
         } 
