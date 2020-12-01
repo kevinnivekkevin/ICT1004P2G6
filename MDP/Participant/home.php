@@ -26,6 +26,7 @@ error_reporting(0);
   <link rel="stylesheet" href="css/style3.css">
 </head>
 <body>
+	<main>
     <div class="navbar">
         <a class="active" style="width: 19%;" href="home.php">Home</a>
         <a style="width: 22%;" href="Shirtsize.php">Shirt Size</a>
@@ -57,6 +58,7 @@ error_reporting(0);
 </div>
         </div>
 </div>
+	</main>
 </body>
 </html>
 
