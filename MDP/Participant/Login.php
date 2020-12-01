@@ -66,13 +66,13 @@ if(password_verify($password, $hash_pass)){
       <link rel="stylesheet" href="css/style3.css">
 </head>
 <body>
-    
+    <main>
     <div class="header" >
 	<h1>Participant Login</h1>
        </div> 
     <div class="container">
 	<div class="row" >
-	<h2 style="color: #f00;"> &nbsp;<?php echo $error ?></h2>
+	<p style="color: #f00;"><?php echo $error ?>&nbsp;</p>
        </div>
 <form method="post">
     
@@ -100,6 +100,7 @@ if(password_verify($password, $hash_pass)){
        
 
 </div>
+    </main>
 </body>
 
 </html>
