@@ -21,6 +21,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
       <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
+	<main>
 <?php include "navbarParticipant.php"?>
     <div class="header" >
 	<h1>Shirt Size Recommender</h1>
@@ -30,7 +31,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
     <div class="row">
 	
 	<h4>List of Events:</h4>
-    <select name='event_id'><?php while ($row = $result->fetch_assoc()) {
+    <select name='event_id' aria-label="Event List"><?php while ($row = $result->fetch_assoc()) {
 
                   unset($id, $name);
                   $id = $row['event_id'];
@@ -40,7 +41,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
 }?></select>
 	<br/><br/>
         </div>
-	<h4>Chest width (Inches):</h4> <input type="text" name="cw" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46"><br/><br/>
+	<h4>Chest width (Inches):</h4> <input type="text" aria-label="Chest Width" name="cw" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46"><br/><br/>
 	<br/><br/>
 	<input type="submit" name="contactForm" value="Submit"/><br/><br/>
 	
@@ -57,6 +58,7 @@ $connection = new mysqli(HOSTNAME, MYSQLUSER, MYSQLPASS, MYSQLDB);
 include ("Shirtsize6a.php");
 ?>
 </div>
+	</main>
 </body>
 
 </html>
