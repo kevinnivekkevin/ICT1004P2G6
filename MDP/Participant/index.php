@@ -36,9 +36,24 @@ and open the template in the editor.
     <?php include "nav.inc.php" ?>
 
     <body>   
-        <header class="jumbotron text-center"> <!-- class="text-center" centralizes the header -->     
-            <h1>Welcome to the Marathon World!</h1>
+        <header> 
+            <div class="nav-offset"></div>
+            <section class="home__banner-wrapper">
+                <div class="banner__video-wrapper">
+                    <video autoplay loop muted width="100%">
+                        <source src="/MDP/video/Promo video.mp4">
+                        <track src="captions_en.vtt" kind="captions" srclang="en" label="english_captions">
+                    </video>
+                </div>
+                <div class="bg-shadow full"></div>
+                <div class="banner__content-wrapper">
+                    <h1 class="title title-white">Welcome to the Marathon World </h1> <div class="btn btn-green with-arrow">
+                        <a href="Reg_Acc.php">Register now </a>
+                        </div>
+                </div>
+            </section>
         </header>
+        <section class="home__races-wrapper" >
 
         <main class="container">
             <!--Section for event 1 -->
@@ -96,6 +111,7 @@ and open the template in the editor.
                 </div>
             </section>
         </main>
+            </section>
         <?php 
         include "footer.inc.php"
         ?>
