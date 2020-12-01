@@ -14,7 +14,7 @@ if(isset($_SESSION['user_id'])){     //if section id is not empty.
    $dob_month = $_SESSION['dob_month'];
    $dob_year = $_SESSION['dob_year'];
    $gender = $_SESSION['gender'];
-   $blood_type = $_SESSION['blood_type'];
+   $bloodtype = $_SESSION['bloodtype'];
 } 
 
 // Check for form submission:
@@ -60,11 +60,11 @@ if(isset($_SESSION['user_id'])){     //if section id is not empty.
         $g = htmlspecialchars($_POST['gender']);
     }
     
-      if (empty($_POST['blood_type'])) {
-        $errors[] = 'You forgot to enter your blood_type.';
+      if (empty($_POST['bloodtype'])) {
+        $errors[] = 'You forgot to enter your bloodtype.';
     } else {
-//        $b = mysqli_real_escape_string($dbc, trim($_POST['blood_type']));
-        $b = htmlspecialchars($_POST['blood_type']);
+//        $b = mysqli_real_escape_string($dbc, trim($_POST['bloodtype']));
+        $b = htmlspecialchars($_POST['bloodtype']);
     }
     
     if (empty($errors)) { // If everything's OK.
@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_array($result)) {
     $dob_year = $row['dob_year'];
     $gender = $row['gender'];
     $email = $row['email'];
-    $blood_type = $row['blood_type'];
+    $bloodtype = $row['bloodtype'];
     $first_name = $row['first_name'];
     $last_name = $row['last_name'];
     $regdate = $row['registration_date'];
@@ -100,7 +100,7 @@ if(mysqli_num_rows($result)==1){
     $_SESSION['dob_year'] = $dob_year;
     $_SESSION['gender'] = $gender;
     $_SESSION['email'] = $email;
-    $_SESSION['blood_type'] = $blood_type;
+    $_SESSION['bloodtype'] = $bloodtype;
     $_SESSION['first_name'] = $first_name;
     $_SESSION['last_name'] = $last_name;
     $_SESSION['regdate'] = $regdate;
@@ -200,9 +200,9 @@ error_reporting(0);?>
         
     <label for="bloodtype">Blood type:</label>   
     <div class="row">
-      <select required name="blood_type" id="bloodtype" class="form-group" aria-label="Bloodtype">
+      <select required name="bloodtype" id="bloodtype" class="form-group" aria-label="Bloodtype">
     <!--<option value="" selected="selected">Gender</option>-->
-    <option value="<?php echo $blood_type;?>" selected="selected">&nbsp;<?php echo $blood_type;?></option>
+    <option value="<?php echo $bloodtype;?>" selected="selected">&nbsp;<?php echo $bloodtype;?></option>
     <option value="A+">A+</option>
     <option value="A-">A-</option>
     <option value="B+">B+</option>
