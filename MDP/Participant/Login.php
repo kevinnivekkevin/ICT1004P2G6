@@ -74,7 +74,7 @@ if(password_verify($password, $hash_pass)){
     
 	
         <div class="row">
-            <h4>Login</h4>
+            <h2>Login</h2>
         </div>
         <div class="row">
       <div class="input-group input-group-icon">
