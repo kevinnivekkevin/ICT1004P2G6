@@ -4,11 +4,7 @@ session_start();
 if(isset($_SESSION['user_id'])){
    $user_id = $_SESSION['user_id'];
    $username = $_SESSION['username'];
-   $address = $_SESSION['address'];
-   $postal_code = $_SESSION['postal_code'];
-   $company_name = $_SESSION['company_name'];
-   $phone = $_SESSION['phone'];
-   $regdate = $_SESSION['registration_date'];
+   $email = $_SESSION['email'];
 }
 error_reporting(0);
     ?>
@@ -33,11 +29,10 @@ error_reporting(0);
     <div class="row">
         <img src="css/profile.png" alt="Profile Pic" height="150" width="150" style="float: right;">
 	<h3 style="display: inline;">Username: </h3><br/><?php echo $username;?><br/><br/>
-        <h3 style="display: inline;">Company name: </h3><br/><?php echo $company_name;?><br/><br/>
-        <h3 style="display: inline;">Address: </h3><br/><?php echo $address;?><br/><br/>
-        <h3 style="display: inline;">Postal Code: </h3><br/>Singapore <?php echo $postal_code;?><br/><br/>
-        <h3 style="display: inline;">Phone: </h3><br/><?php echo $phone;?><br/><br/>
-        <h3 style="display: inline;">Date Registered: </h3><br/><?php echo $regdate;?><br/><br/>
+        <h3 style="display: inline;">Company name:</h3><br/>AiPao pte ltd<br/><br/>
+        <h3 style="display: inline;">Address:</h3><br/>172 Ang Mo Kio Avenue 8, 567739<br/><br/>
+        <h3 style="display: inline;">Phone:</h3><br/>6592 1189<br/><br/>
+        <h3 style="display: inline;">Email:</h3><br/><br/><?php echo $email;?><br/>
         </div>
         
         <br/><br/>
