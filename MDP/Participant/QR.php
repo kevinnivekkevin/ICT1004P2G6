@@ -53,7 +53,7 @@ $query = "SELECT shirt_size, bib_number FROM vending.RE WHERE user_id = $user_id
   
         <h4 style="font-size: 25px; text-align: center;"><?php echo $name;?></h4>
         <div class="row">
-	<img src="css/qr.jpg" alt="QR code" height="width" width="80%" style="margin-left: auto; margin-right: auto; display: block;">
+	<img src="css/qr.jpg" alt="QR code" height="80%" width="80%" style="margin-left: auto; margin-right: auto; display: block;">
                 </div>
         <div class="row">
         <h4 style="font-size: 25px; text-align: center;">Event Details</h4>
