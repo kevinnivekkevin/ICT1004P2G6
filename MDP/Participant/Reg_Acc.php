@@ -263,7 +263,7 @@
       </div>
      </div>
     <div class="row">       
-        <div class="form-check" name="checkbox">
+        <div class="form-check" id="checkbox">
             <h4>Terms and Conditions</h4>
            <input type="checkbox" required id="terms" aria-label="checkbox"> <label for="terms">
              I accept the <a href="https://singaporemarathon.com/rules-regulations/#STRUNSCSM.html" >terms and conditions</a> for signing up to this service, and hereby confirm I have read the privacy policy.</label>
