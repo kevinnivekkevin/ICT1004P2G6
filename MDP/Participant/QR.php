@@ -38,7 +38,7 @@ $query = "SELECT shirt_size, bib_number FROM vending.RE WHERE user_id = $user_id
       <link rel="stylesheet" href="css/style3.css">
 </head>
 <body>
-
+<main>
 <?php include "navbarParticipant.php" ?>
     <div class="header" >
 	<h1>QR Code</h1>
@@ -66,6 +66,7 @@ $query = "SELECT shirt_size, bib_number FROM vending.RE WHERE user_id = $user_id
 
         
         </div>
+	</main>
 </body>
 
 </html>
