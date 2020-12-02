@@ -277,7 +277,7 @@
     <div class="row">
       <div class="input-group input-group-icon">
 
-        <input type="password" name="pass" id="password" placeholder="Enter password" required maxlength="45" aria-label="password"/>
+        <input type="password" name="pass" id="password" placeholder="Enter password" required minlength="8" maxlength="20" aria-label="password"/>
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
     </div>
@@ -285,7 +285,7 @@
     <div class="row">    
       <div class="input-group input-group-icon">
            
-        <input type="password" name="pass1" id="password1" placeholder="Confirm password" required maxlength="45" aria-label="password1"/>
+        <input type="password" name="pass1" id="password1" placeholder="Confirm password" required minlength="8" maxlength="20" aria-label="password1"/>
         <div class="input-icon"><i class="fa fa-key"></i></div>
       </div>
      </div>
